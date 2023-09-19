@@ -1,0 +1,5 @@
+pyzbar
+pillow
+pyperclip
+numpy
+opencv-python
