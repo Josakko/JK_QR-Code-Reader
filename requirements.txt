@@ -3,3 +3,4 @@ pillow
 pyperclip
 numpy
 opencv-python
+nuitka
