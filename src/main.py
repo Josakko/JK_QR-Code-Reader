@@ -10,7 +10,7 @@ import pyperclip
 
 
 def main():
-    global data_lbl, canvas, root
+    global data_lbl, root, canvas
     root = tk.Tk()
 
 
@@ -80,14 +80,15 @@ def get_qrcode():
 
     data_lbl["text"] = "\n".join(formated_data) if len("\n".join(formated_data)) != 0 else "No QR codes found in image!"
 
+
     canvas.create_image(0, 0, anchor=tk.NW, image=image)
 
 
 
-def read(path, max_width=1280, max_height=720):
+def read(path: str, max_width: int | None=1280, max_height: int | None=720) -> (list, PIL.ImageTk.PhotoImage):
     if not os.path.isfile(path):
-        print(False)
-        return False # return (None, None)
+        #return False # return (None, None)
+        raise Exception(f"Invalid file: {path}!")
 
 
     image = cv2.imread(path)
